@@ -1,0 +1,139 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-title>Loan EMI</mat-card-title>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+                <h3>Personal Loan EMI Calculator</h3>
+            </mat-card-title>
+
+            <mat-card-content>
+                <p>
+                    Planning to take a Personal Loan? Use this Personal Loan EMI Calculator to estimate the EMI amount
+                    payable per month to repay the Personal Loan. The Personal Loan EMI Calculator is easy to use. All
+                    you
+                    need to select is the: Loan amount ranging from ₹ 50,000 to ₹ 50 lakh, Attractive Interest Rates,
+                    Loan
+                    Tenure (ranging from 12 – 72* months). After selecting the Loan Amount, Interest Rate per annum and
+                    the
+                    Loan Tenure, the calculator will estimate the monthly EMI amount and the total Interest payable till
+                    the
+                    end of the loan tenure.
+                </p>
+            </mat-card-content>
+
+        </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card class="example-card internalMatGrid">
+            <mat-card-title>Personal Loan EMI Calculator</mat-card-title>
+            <mat-card-content>
+                <mat-grid-list cols="3" rowHeight="2:1">
+
+                    <form [formGroup]="loanForm">
+
+                        <mat-grid-tile>
+                            <div>
+                                <h2>Loan Amount</h2>
+
+                                <label for="id1"></label>
+                                <!-- <input type="text" class="form-control" name="amount" id="id1" formControlName="loanamount"> -->
+                                <mat-label class="text-label">{{loanamount}}</mat-label>
+                                <mat-slider [thumbLabel]="thumbLabel" [displayWith]="formatLabel" tickInterval="10000" step="1000"
+                                    min="0" max="1000000" aria-label="units" [(ngModel)]="loanamount"
+                                    [ngModelOptions]="{standalone: true}"
+                                    (ngModelChange)="setshowAmount()"></mat-slider>
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile>
+                            <div>
+                                <h2>Tenure(months)</h2>
+                                <label for="id2"></label>
+                                <!-- <input type="text" class="form-control" name="amount" id="id2" formControlName="tenure"> -->
+                                <mat-label class="text-label">{{tenure}}</mat-label>
+
+                                <mat-slider class="example-margin" [max]="60" [min]="12" [step]="6"
+                                    [thumbLabel]="thumbLabel" [tickInterval]="100" [(ngModel)]="tenure"
+                                    [ngModelOptions]="{standalone: true}" (ngModelChange)="settenure()">
+                                </mat-slider>
+                            </div>
+                        </mat-grid-tile>
+
+                        <mat-grid-tile>
+                            <div>
+                                <h2>Rate Of Interest </h2>
+                                <label for="id3"></label>
+                                <!-- <input type="text" class="form-control" name="amount" formControlName="rateofinterest"> -->
+                                <mat-label class="text-label">{{rateofinterest}}</mat-label>
+                                <mat-slider class="example-margin" [max]="20" [min]="3" [step]="0.01"
+                                    [thumbLabel]="thumbLabel" [tickInterval]="100" [(ngModel)]="rateofinterest"
+                                    [ngModelOptions]="{standalone: true}" (ngModelChange)="setrateofinterest()">
+                                </mat-slider>
+                            </div>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <div>
+                                <h2>EMI &nbsp;</h2>
+                                <label for="id4"></label>
+                                <mat-label class="text-label">{{emi | number:'.2-2'}}</mat-label>
+                                <button mat-button routerLink="/apply-pl">Apply Now</button>
+                            </div>
+                        </mat-grid-tile>
+                    </form>
+                </mat-grid-list>
+            </mat-card-content>
+
+        </mat-card>
+        <div>
+
+        </div>
+
+    </mat-grid-tile>
+
+</mat-grid-list>
+
+
+<!-- EMI Amount = [P x R x (1+R)^N]/[(1+R)^N-1] -->
+<!-- E=P×r×(1+r)n((1+r)n–1) -->
+<!-- <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <div class='internalMatGrid' >
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile>1</mat-grid-tile>
+          <mat-grid-tile>2</mat-grid-tile>
+          <mat-grid-tile>3</mat-grid-tile>
+          <mat-grid-tile>4</mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>2</mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+  </mat-grid-list> -->
+
+
+<!-- <div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-label class="text-label">Loan Amount</mat-label>
+                <mat-label class="text-label">50000</mat-label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-label class="text-label">Tenure(months)</mat-label>
+                <mat-label class="text-label">32</mat-label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-label class="text-label">Rate Of Interest(In Percentage)</mat-label>
+                <mat-label class="text-label">20</mat-label>
+            </div>
+        </div>
+    </div>
+</div> -->

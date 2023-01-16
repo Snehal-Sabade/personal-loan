@@ -1,0 +1,56 @@
+<div class="">
+    <img src="https://www.tatacapital.com/online/loans/personal-loans/assets/PL-Additional.jpg" alt="" height="50%" width="100%">
+</div>
+
+<!-- <button mat-raised-button (click)="isEditable = !isEditable">
+    {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+  </button>
+   -->
+   <!-- <label for="">snehal</label>
+   <input type="text" name="" id=""> -->
+  <mat-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+        <ng-template matStepLabel>New Customer</ng-template>
+        <app-customer-details></app-customer-details>
+      <!-- <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>New Customer</ng-template>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Employement Type</mat-label>
+          <input matInput formControlName="firstCtrl"  required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form> -->
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+        <ng-template matStepLabel>Existing Customer</ng-template>
+        <app-existing-customer></app-existing-customer>
+        <h5>Please enter your mobile number to continue your application</h5>
+      <!-- <form [formGroup]="secondFormGroup" >
+        <ng-template matStepLabel>Existing Customer</ng-template>
+        <h5>Please enter your mobile number to continue your application</h5>
+        <mat-form-field appearance="fill">
+          <mat-label>Mobile No.</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Please Enter Your Mobile Number"
+                 required>
+                 
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form> -->
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Track My Application</ng-template>
+      <app-track-my-application></app-track-my-application>
+      <!-- <p>You are now done.</p> -->
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+  

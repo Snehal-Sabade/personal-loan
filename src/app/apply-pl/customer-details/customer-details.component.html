@@ -1,0 +1,256 @@
+<mat-grid-list cols="3" class="grid" rowHeight="2:1">
+
+    <mat-grid-tile >
+        <p>
+            <mat-form-field appearance="standard">
+
+                <section>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label class="text-label">Employement Name</mat-label>
+                        <input matInput placeholder="Placeholder" required>
+                        <mat-select [formControl]="selectedFW" (selectionChange)="onEmployeeTypeChange($event)">
+                            <mat-option *ngFor="let framework of employement" value="{{framework.text}}">
+                                {{ framework.text}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </section>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+    <mat-grid-tile >
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">Mobile Number</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="isSelfEmployed">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">PAN</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+
+    <mat-grid-tile *ngIf="isSelfEmployed">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">First Name (as per PAN)*
+                </mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="isSelfEmployed">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">Last Name (as per PAN)*</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="isSelfEmployed">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">DOB</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+
+    <mat-grid-tile *ngIf="isSelfEmployed">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">Gender</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="isSelfEmployed">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">Pincode</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="isSelfEmployed">
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">City</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+    <!-- <mat-grid-tile>PAN</mat-grid-tile>
+    <mat-grid-tile>New Customer</mat-grid-tile>
+    <mat-grid-tile>Mobile Number</mat-grid-tile>
+    <mat-grid-tile>PAN</mat-grid-tile>
+    <mat-grid-tile>First Name(As per PAN)</mat-grid-tile>
+    <mat-grid-tile>Last Name(As per PAN)</mat-grid-tile>
+    <mat-grid-tile>DOB</mat-grid-tile>
+   -->
+
+    <!-- </mat-grid-list> -->
+
+    <!-- <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile>First Name(As per PAN)</mat-grid-tile>
+    <mat-grid-tile>Last Name(As per PAN)</mat-grid-tile>
+    <mat-grid-tile>DOB</mat-grid-tile>
+  
+  </mat-grid-list>
+
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile>Gender</mat-grid-tile>
+    <mat-grid-tile>Pincode</mat-grid-tile>
+    <mat-grid-tile>City</mat-grid-tile>
+  
+  </mat-grid-list> -->
+    <!-- ---------------- -->
+    <!-- <mat-grid-list cols="3" class="grid" rowHeight="2:1">
+    <mat-grid-tile >
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label class="text-label">Employement Type</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">Mobile Number</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">PAN</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="3" class="grid" rowHeight="2:1">
+    <mat-grid-tile>
+        <p>
+            <mat-form-field appearance="legacy">
+
+                <mat-label class="text-label">First Name(As per PAN)</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">Last Name</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">DOB</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="3"  rowHeight="2:1">
+    <mat-grid-tile>
+        <p>
+            <mat-form-field appearance="legacy">
+                <mat-label class="text-label">Gender</mat-label>
+
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">Pincode</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="standard">
+                <mat-label class="text-label">City</mat-label>
+                <input matInput placeholder="Placeholder" required>
+            </mat-form-field>
+        </p>
+    </mat-grid-tile>
+</mat-grid-list> -->
+    <!-- ---------------- -->
+
+    <!-- <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile>
+        <ng-template matStepLabel>New Customer</ng-template> -->
+    <!-- <p>
+            <mat-form-field appearance="legacy">
+                <mat-label>Employement Type</mat-label>
+                <ng-template matStepLabel>New Customer</ng-template>
+                <input matInput placeholder="Placeholder" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    
+            </mat-form-field>
+        </p> -->
+    <!-- <p>
+            <mat-form-field appearance="standard">
+                <mat-label>First Name(As per PAN)</mat-label>
+                <input matInput placeholder="Placeholder" required>
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    
+            </mat-form-field>
+        </p>
+        
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Outline form field</mat-label>
+                    <input matInput placeholder="Placeholder" required>
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    
+                </mat-form-field>
+            </p>
+    </mat-grid-tile>
+
+     -->
+
+
+
+    <!-- <mat-grid-list cols="3" rowHeight="2:1"> 
+        <mat-grid-tile>
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Employement Type</mat-label>
+                    <ng-template matStepLabel>New Customer</ng-template>
+                    <input matInput placeholder="Placeholder" required>
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="standard">
+                    <mat-label>First Name(As per PAN)</mat-label>
+                    <input matInput placeholder="Placeholder" required>
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Gender</mat-label>
+                    <input matInput placeholder="Placeholder" required>
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    
+                </mat-form-field>
+            </p>
+        </mat-grid-tile>
+    </mat-grid-list>
+         -->
