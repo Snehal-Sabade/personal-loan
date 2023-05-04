@@ -7,7 +7,7 @@
                 <section>
 
                     <mat-form-field appearance="outline">
-                        <mat-label class="text-label">Employement Name</mat-label>
+                        <mat-label class="text-label">Employement Type</mat-label>
                         <input matInput placeholder="Placeholder" required>
                         <mat-select [formControl]="selectedFW" (selectionChange)="onEmployeeTypeChange($event)">
                             <mat-option *ngFor="let framework of employement" value="{{framework.text}}">
